@@ -27,7 +27,7 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-		echo "Bienvenido ".$_SESSION['user'];
+		$this->load->view('home/main');
 	}
 
 }

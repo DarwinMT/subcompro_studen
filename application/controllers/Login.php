@@ -31,15 +31,18 @@ class Login extends CI_Controller {
 	}
 	public function start_login()
 	{
+		$this->load->model('Usuario_model');
 		$usuario=$this->input->post("txt_user",TRUE);
 		$password=$this->input->post("txt_password",TRUE);
-		if($usuario=="admin" ){
-			if($password=="123"){
-				$_SESSION['user']="Mijin";
+		$aux_data_user=$this->Usuario_model->getUser($usuario);
+		
+		if(count($aux_data_user)){
+			if($aux_data_user[0]["password_usu"]==md5($password) ){
+				$_SESSION['user']=$aux_data_user[0]["nombre_per"]." ".$aux_data_user[0]["apellido_per"];
 				redirect(base_url()."/Main");
 			}else{
 				$aux["Error"]="Contraseña Incorrecta";
-				$this->load->view('home/home',$aux);	
+				$this->load->view('home/home',$aux);
 			}
 		}else{
 			$aux["Error"]="Usuario Incorrecto";
