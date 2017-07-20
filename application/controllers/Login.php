@@ -38,7 +38,8 @@ class Login extends CI_Controller {
 		
 		if(count($aux_data_user)){
 			if($aux_data_user[0]["password_usu"]==md5($password) ){
-				$_SESSION['user']=$aux_data_user[0]["nombre_per"]." ".$aux_data_user[0]["apellido_per"];
+				$_SESSION['user_name']=$aux_data_user[0]["nombre_per"]." ".$aux_data_user[0]["apellido_per"];
+				$_SESSION['user']=$aux_data_user;
 				redirect(base_url()."/Main");
 			}else{
 				$aux["Error"]="Contraseña Incorrecta";
@@ -49,6 +50,11 @@ class Login extends CI_Controller {
 			$this->load->view('home/home',$aux);
 		}
 		
+	}
+	public function end_session()
+	{
+		session_destroy();
+		redirect(base_url());
 	}
 
 }

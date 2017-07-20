@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Proveedor extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -27,10 +27,13 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
+		# code...
+	}
+	public function list_permisos()
+	{
 		if(isset($_SESSION['user'])){
 			$aux_data_user=$_SESSION['user'];
-			$data["permisos"]=json_decode($aux_data_user[0]["permiso_modulo"]);
-			$this->load->view('home/main',$data);
+			echo $aux_data_user[0]["permiso_modulo"];
 		}else{
 			session_destroy();
 			redirect(base_url());

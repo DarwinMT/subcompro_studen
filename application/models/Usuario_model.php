@@ -19,8 +19,8 @@ class Usuario_model extends CI_Model
 		$s_get_user.=" * ";
 		$s_get_user.=" FROM usuario ";
 		$s_get_user.=" INNER JOIN persona ON usuario.id_per=persona.id_per";
+		$s_get_user.=" INNER JOIN rol ON usuario.id_usu=rol.id_usu ";
 		$s_get_user.=" WHERE ";
-		//$s_get_user.=" usuario.usuario_usu='".$user."' AND usuario.password_usu=(SELECT MD5('".$pass."')) ;";
 		$s_get_user.=" usuario.usuario_usu='".$user."' ;";
 		$query=$this->db->query($s_get_user);
 		return $query->result_array();

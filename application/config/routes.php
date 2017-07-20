@@ -54,4 +54,12 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//---- LOGICA INICIO DE SESSION Y FIN 
 $route['init_session'] = 'Login/start_login';
+$route['end_session'] = 'Login/end_session';
+
+//---- LOGICA INICIO DE SESSION Y FIN 
+
+//---- LOGICA PROVEEOR ------
+$route['get_permisos_proveedor'] = 'Proveedor/list_permisos'; 
+
