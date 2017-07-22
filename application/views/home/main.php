@@ -2,7 +2,7 @@
 <html lang="en" ng-app="subcompro">
 	<head>
 		<meta charset="utf-8">
-		<title>DevOOPS v2</title>
+		<title>SUPCOMPRO S.A</title>
 		<meta name="description" content="description">
 		<meta name="author" content="DevOOPS">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +53,7 @@
 	<div class="container-fluid expanded-panel">
 		<div class="row">
 			<div id="logo" class="col-xs-12 col-sm-2">
-				<a href="index.html">DevOOPS v2</a>
+				<a href="index.html">SUPCOMPRO S.A</a>
 			</div>
 			<div id="top-panel" class="col-xs-12 col-sm-10">
 				<div class="row">
@@ -88,7 +88,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle account" data-toggle="dropdown">
 									<div class="avatar">
-										<img src="<?php echo base_url(); ?>assets/img/avatar.jpg" class="img-circle" alt="avatar" />
+										<img src="<?php echo base_url(); ?>assets/img/avatar_anonymous.png" class="img-circle" alt="avatar" />
 									</div>
 									<i class="fa fa-angle-down pull-right"></i>
 									<div class="user-mini pull-right">

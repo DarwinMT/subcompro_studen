@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>.:: SUPCOMPRO::.</title>
+	<title>.:: SUPCOMPRO S.A ::.</title>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-3.2.1.js" ></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" ></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
@@ -57,7 +57,7 @@
       <form class="form-signin" action="<?php echo base_url().'init_session'; ?>"  method="post" >
         <h2 class="form-signin-heading text-center"><strong>Login</strong></h2>
         <label for="txt_user" class="sr-only">Usuario</label>
-        <input type="text" name="txt_user" id="txt_user" class="form-control" placeholder="Usuario O Correo" required autofocus>
+        <input type="text" name="txt_user" id="txt_user" class="form-control" placeholder="Usuario o Correo" required autofocus>
         <label for="txt_password" class="sr-only">Contraseña</label>
         <input type="password" name="txt_password" id="txt_password" class="form-control" placeholder="Contraseña" required>
         <?php
