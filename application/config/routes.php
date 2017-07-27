@@ -62,4 +62,7 @@ $route['end_session'] = 'Login/end_session';
 
 //---- LOGICA PROVEEOR ------
 $route['get_permisos_proveedor'] = 'Proveedor/list_permisos'; 
+$route['save_proveedor'] = 'Proveedor/save_proveedor'; 
+$route['list_proveedor'] = 'Proveedor/get_proveedores'; 
+$route['activar_inactivar'] = 'Proveedor/edit_estado';  
 

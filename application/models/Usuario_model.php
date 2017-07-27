@@ -25,17 +25,4 @@ class Usuario_model extends CI_Model
 		$query=$this->db->query($s_get_user);
 		return $query->result_array();
 	}
-	/*public function Get_datosusuario($user,$pass)
-	{
-		$this->db->select("*");
-		$this->db->from("usuario");
-		$this->db->join("persona", "persona.id_pe= usuario.id_pe");
-		$this->db->where("usuario.username",$user);
-		$this->db->where("usuario.password",$pass);
-		$this->db->where("usuario.estado",1);
-		$data=$this->db->get();
-		//return $data->result();
-		//return $data->result_array();
-		return $data->row();
-	}*/
 }
