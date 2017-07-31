@@ -63,4 +63,12 @@ class Proveedor extends CI_Controller {
 		$data =  json_decode(file_get_contents("php://input"));
 		echo $this->Proveedor_model->estadoProveedor($data);
 	}
+
+	public function edit_proveedor()
+	{
+		$this->load->model('Proveedor_model');
+		$data =  json_decode(file_get_contents("php://input"));
+		$this->Proveedor_model->updataPersona($data->Persona);
+		echo $this->Proveedor_model->updataProveedor($data->Proveedor);
+	}
 }

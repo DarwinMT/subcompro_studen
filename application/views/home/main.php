@@ -213,6 +213,7 @@
 
 <script src="<?php echo base_url(); ?>app/app/app.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicaproveedor.js"></script>
+<script src="<?php echo base_url(); ?>app/app/logicausuario.js"></script>
 
 </body>
 </html>

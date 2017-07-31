@@ -65,4 +65,17 @@ $route['get_permisos_proveedor'] = 'Proveedor/list_permisos';
 $route['save_proveedor'] = 'Proveedor/save_proveedor'; 
 $route['list_proveedor'] = 'Proveedor/get_proveedores'; 
 $route['activar_inactivar'] = 'Proveedor/edit_estado';  
+$route['save_edit_proveedor'] = 'Proveedor/edit_proveedor';  
 
+
+//-----LOGICA USUARIO ------
+$route['save_usuario'] = 'Usuario/save_usuario'; // pendiente xD
+$route['list_usuario'] = 'Usuario/get_usuario'; 
+	////---- logica de asignacion de permisos usuario 
+	$route['menu'] = 'Usuario/list_menu'; 
+	$route['save_permisos_usuario'] = 'Usuario/save_permisos'; 
+	$route['edit_permisos_usuario'] = 'Usuario/edit_permisos';
+	////---- logica de asignacion de permisos usuario 
+$route['save_edit_usuario'] = 'Usuario/edit_usuario'; 
+
+//-----LOGICA USUARIO ------

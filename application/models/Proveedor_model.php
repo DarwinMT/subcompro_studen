@@ -47,4 +47,16 @@ class Proveedor_model extends CI_Model
         $this->db->where('id_per',$data->id_per);
         return $this->db->update('persona', $update);
 	}
+
+	public function updataPersona($data)
+	{
+        $this->db->where('id_per',$data->id_per);
+        return $this->db->update('persona', $data);
+	}
+
+	public function updataProveedor($data)
+	{
+        $this->db->where('id_pro',$data->id_pro);
+        return $this->db->update('proveedor', $data);
+	}
 }
