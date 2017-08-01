@@ -214,6 +214,10 @@
 <script src="<?php echo base_url(); ?>app/app/app.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicaproveedor.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicausuario.js"></script>
+<script src="<?php echo base_url(); ?>app/app/logicaempleado.js"></script>
+<script src="<?php echo base_url(); ?>app/app/logicamarca.js"></script>
+<script src="<?php echo base_url(); ?>app/app/logicaproducto.js"></script>
+<script src="<?php echo base_url(); ?>app/app/logicabodega.js"></script>
 
 </body>
 </html>

@@ -164,7 +164,7 @@
  							<td>
  								<button type="button" class="btn btn-primary" ng-click="init_edit(p);"><i class="glyphicon glyphicon-pencil"></i></button>
  								<button type="button" class="btn btn-success" ng-click=" permisos_usuario(p); " ><i class="glyphicon glyphicon-cog"></i></button>
- 								<button type="button" class="btn btn-danger" ng-click=" activar_inactivar(p); " ><i class="glyphicon glyphicon-trash"></i></button>
+ 								<button type="button" class="btn btn-danger" ng-disabled="list_permisos.access_delete==0 " ng-click=" activar_inactivar(p); " ><i class="glyphicon glyphicon-trash"></i></button>
 
  							</td>
  						</tr>

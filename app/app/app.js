@@ -9,6 +9,22 @@ app.config(function($routeProvider){
 		templateUrl : "app/view/Usuario/ViewUsuario.php",
 		controller : "logicausuarios"
 	})
+	.when("/6",{
+		templateUrl : "app/view/Empleado/ViewEmpleado.php",
+		controller : "logicaempleado"
+	})
+	.when("/7",{
+		templateUrl : "app/view/Marca/ViewMarca.php",
+		controller : "logicamarca"
+	})
+	.when("/4",{
+		templateUrl : "app/view/Producto/ViewProducto.php",
+		controller : "logicaproducto"
+	})
+	.when("/8",{
+		templateUrl : "app/view/Bodega/ViewBodega.php",
+		controller : "logicabodega"
+	})
 	.otherwise({
         template : ""
     });

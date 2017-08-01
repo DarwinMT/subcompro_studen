@@ -79,3 +79,24 @@ $route['list_usuario'] = 'Usuario/get_usuario';
 $route['save_edit_usuario'] = 'Usuario/edit_usuario'; 
 
 //-----LOGICA USUARIO ------
+
+///---------- LOGICA EMPLEADO 
+$route['save_empleado'] = 'Empleado/save_empleado';
+$route['list_empleado'] = 'Empleado/get_empleados'; 
+$route['save_edit_empleado'] = 'Empleado/edit_empleado';  
+
+//----LOGICA MARCA ----
+$route['save_marca'] = 'Marca/save_marca';
+$route['list_marcas'] = 'Marca/get_marcas';
+$route['save_edit_marca'] = 'Marca/edit_marca';
+$route['activar_inactivar_marca'] = 'Marca/edit_estado';  
+//---- LOGICA PRODUCTO 
+$route['save_producto'] = 'Producto/save_producto';
+$route['list_producto'] = 'Producto/get_productos';
+$route['save_edit_producto'] = 'Producto/edit_producto';
+$route['activar_inactivar_producto'] = 'Producto/edit_estado';
+///----- LOGICA BODEGA
+$route['save_bodega'] = 'Bodega/save_bodega';
+$route['list_bodegas'] = 'Bodega/get_bodegas';
+$route['save_edit_bodega'] = 'Bodega/edit_bodega';
+$route['activar_inactivar_bodega'] = 'Bodega/edit_estado';
