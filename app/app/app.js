@@ -25,6 +25,10 @@ app.config(function($routeProvider){
 		templateUrl : "app/view/Bodega/ViewBodega.php",
 		controller : "logicabodega"
 	})
+	.when("/3",{
+		templateUrl : "app/view/Kardex/ViewKardex.php",
+		controller : "logicakardex"
+	})
 	.otherwise({
         template : ""
     });

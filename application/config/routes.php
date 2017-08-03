@@ -100,3 +100,8 @@ $route['save_bodega'] = 'Bodega/save_bodega';
 $route['list_bodegas'] = 'Bodega/get_bodegas';
 $route['save_edit_bodega'] = 'Bodega/edit_bodega';
 $route['activar_inactivar_bodega'] = 'Bodega/edit_estado';
+
+//----- LOGICA KARDEX
+$route['save_kardex'] = 'Kardex/save_kardex';
+$route['kardex_producto'] = 'Kardex/kardex_producto';
+

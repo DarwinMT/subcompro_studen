@@ -179,10 +179,10 @@
 			<div class="preloader">
 				
 
-				<div class="Container">
+				<div class="container" >
 
 					<div class="row" >
-						<div class="col-xs-12" style="padding: 2%;" ng-view>
+						<div class="col-xs-12"  ng-view>
 						</div>
 					</div>
 				</div>
@@ -218,6 +218,6 @@
 <script src="<?php echo base_url(); ?>app/app/logicamarca.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicaproducto.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicabodega.js"></script>
-
+<script src="<?php echo base_url(); ?>app/app/logicakardex.js"></script>
 </body>
 </html>
