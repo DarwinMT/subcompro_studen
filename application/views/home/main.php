@@ -206,6 +206,17 @@
 <script src="<?php echo base_url(); ?>assets/plugins/tinymce/jquery.tinymce.min.js"></script>
 <!-- All functions for this theme + document.ready processing -->
 <script src="<?php echo base_url(); ?>assets/js/devoops.js"></script>
+<!--
+<script src="<?php echo base_url(); ?>assets/js/jspdf.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/from_html.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/split_text_to_size.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/standard_fonts_metrics.js"></script>-->
+
+
+<script src="<?php echo base_url(); ?>assets/js/pdfmake/build/pdfmake.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/pdfmake/build/vfs_fonts.js"></script>
+
+
 
 <script src="<?php echo base_url(); ?>app/angular/angular.min.js"></script>
 <script src="<?php echo base_url(); ?>app/angular/angular-route.min.js"></script>
@@ -219,5 +230,7 @@
 <script src="<?php echo base_url(); ?>app/app/logicaproducto.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicabodega.js"></script>
 <script src="<?php echo base_url(); ?>app/app/logicakardex.js"></script>
+<script src="<?php echo base_url(); ?>app/app/logicareportes.js"></script>
+
 </body>
 </html>

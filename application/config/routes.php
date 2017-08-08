@@ -105,3 +105,6 @@ $route['activar_inactivar_bodega'] = 'Bodega/edit_estado';
 $route['save_kardex'] = 'Kardex/save_kardex';
 $route['kardex_producto'] = 'Kardex/kardex_producto';
 
+
+//-------- notificacion producto
+$route['get_cant_productos'] = 'Producto/notificacion';

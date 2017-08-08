@@ -59,4 +59,18 @@ class Producto_model extends CI_Model
         $this->db->where('id_prod',$data->id_prod);
         return $this->db->update('producto', $data);
 	}
+	
+	public function getStockNotificacionProducto($filtro)
+	{
+		$sql=" SELECT  ";
+		$sql.=" *, ";
+		$sql.=" IFNULL( ";
+		$sql.=" (SELECT SUM(aux_k.cant_entrada_kar)-SUM(aux_k.cant_salida_kar)  ";
+		$sql.=" FROM producto_bodega aux_p, kardex aux_k  ";
+		$sql.=" WHERE aux_k.id_pd=aux_p.id_pd AND aux_p.id_prod=aux_prod.id_prod AND aux_k.fecha_kar<='".$filtro->Hoy."'),0) AS Cantidad ";
+		$sql.=" FROM producto aux_prod WHERE aux_prod.estado_prod='1' ";
+		$sql.=" ORDER BY aux_prod.nombre_prod; ";
+		$query=$this->db->query($sql);
+		return $query->result_array();
+	}
 }

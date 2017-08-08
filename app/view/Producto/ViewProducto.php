@@ -1,5 +1,13 @@
-<div ng-controller="logicaproducto" >
+<div ng-controller="logicaproducto" ng-init="get_notificaciones();">
  
+ <!--notificaciones-->
+ <div class="row ">
+ 	<div class="col-xs-12 notificaciones" style="position: absolute; z-index: 2000;">
+ 	</div>	
+ </div>
+<!--notificaciones-->
+
+
  <div class="container" ng-init="get_permisos();get_productos();">
  	<div class="row">
  		<div class="col-xs-12">

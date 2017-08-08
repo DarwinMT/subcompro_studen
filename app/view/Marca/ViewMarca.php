@@ -1,6 +1,13 @@
 <div ng-controller="logicamarca" >
  
- <div class="container" ng-init="get_permisos();get_marcas();">
+    <!--notificaciones-->
+ <div class="row ">
+ 	<div class="col-xs-12 notificaciones" style="position: absolute; z-index: 2000;">
+ 	</div>	
+ </div>
+<!--notificaciones-->
+
+ <div class="container" ng-init="get_permisos();get_marcas(); get_notificaciones();">
  	<div class="row">
  		<div class="col-xs-12">
  			<h3 class="page-header"><strong>{{Titulo}}</strong></h3>

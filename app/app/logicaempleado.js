@@ -4,6 +4,35 @@ app.controller("logicaempleado",function($scope,$http){
 	$scope.list_permisos={};
 
 	$scope.newandedit="0";
+
+	$scope.get_notificaciones=function() {
+		var f = new Date();
+		var fecha=f.getFullYear()+"-"+(f.getMonth() +1)+"-"+f.getDate();
+		var filtro={
+			Hoy:fecha
+		};
+		$http.post("get_cant_productos",filtro)
+		.success(function(data){
+			console.log(data);
+			$(".notificaciones").html("");
+			data.forEach(function(e){
+				if(parseInt(e.Cantidad)<=10){
+					var not="";
+					not+="<div class='alert alert-danger' style='float: left; margin-left: 78%;width: 27%; box-shadow: 0px 0px 10px darkgrey;' role='alert'>";
+					not+="<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>";
+					not+=" A la fecha de hoy el proudcto :"+e.nombre_prod+" con codigo: "+e.codigo_prod+" tiene en stock: "+e.Cantidad+" ";
+					not+="</div>";
+					$(".notificaciones").append(not);
+				}
+			});
+
+			setTimeout(function(){
+				$(".notificaciones").hide("slow");
+			},5000);
+		});
+	};
+	
+
 	$scope.get_permisos=function() {
 		$http.get("get_permisos_proveedor")
 			.success(function(data){

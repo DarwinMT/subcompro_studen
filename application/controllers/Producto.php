@@ -67,4 +67,10 @@ class Producto extends CI_Controller {
 		$data =  json_decode(file_get_contents("php://input"));
 		echo $this->Producto_model->updataProducto($data);
 	}
+
+	public function notificacion()
+	{	$this->load->model('Producto_model');
+		$filtro =  json_decode(file_get_contents("php://input"));
+		echo json_encode($this->Producto_model->getStockNotificacionProducto($filtro));
+	}
 }
