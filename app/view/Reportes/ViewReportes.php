@@ -20,13 +20,13 @@
  			<div class="col-xs-3">
  				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-search"></i></span>
-				  <input type="date" class="form-control" name="txt_fechabusca" ng-keyup="get_kardex_invetario();"  id="txt_fechabusca" ng-model="txt_fechabusca" >
+				  <input type="date" class="form-control" name="txt_fechabusca"   id="txt_fechabusca" ng-model="txt_fechabusca" >
 				</div>
  			</div>
  			<div class="col-xs-3">
  				<div class="input-group">
 				  <span class="input-group-addon" id="basic-addon1" >Producto </span>
-				  <select class="form-control" name="busca_producto" ng-change="get_kardex_invetario();" id="busca_producto" ng-model="busca_producto">
+				  <select class="form-control" name="busca_producto"  id="busca_producto" ng-model="busca_producto">
 				  	<option value="">Seleccione</option>
 				  	<option ng-repeat=" auxp in lista_productos " value="{{auxp.id_prod}}"> {{auxp.nombre_prod+' | '+auxp.codigo_prod}}</option>
 				  </select>

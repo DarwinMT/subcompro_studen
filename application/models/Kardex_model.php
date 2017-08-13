@@ -51,6 +51,28 @@ class Kardex_model extends CI_Model
 		$query=$this->db->query($sql);
 		return $query->result_array();
 	}
+	public function reporteKardexProducto($filtro)
+	{	
+		$aux_bodega="";
+		if($filtro->id_bod!=null && $filtro->id_bod!=""){
+			$aux_bodega=" AND  producto_bodega.id_bod='".$filtro->id_bod."' ";
+		}
+		$sql=" SELECT  ";
+		$sql.=" * ";
+		$sql.=" FROM producto_bodega "; 
+		$sql.=" INNER JOIN producto ON producto.id_prod=producto_bodega.id_prod ";
+		$sql.=" INNER JOIN kardex ON kardex.id_pd=producto_bodega.id_pd ";
+		$sql.=" INNER JOIN bodega ON bodega.id_bod=producto_bodega.id_bod ";
+
+		$sql.=" WHERE producto.id_prod='".$filtro->id_prod."' ";
+		$sql.=" AND kardex.fecha_kar<='".$filtro->fecha."' ";
+		$sql.=$aux_bodega;
+		$sql.=" ORDER BY kardex.fecha_kar ASC ";
+		$query=$this->db->query($sql);
+		return $query->result_array();
+
+	}
+
 	public function kardexproducto($filtro)
 	{
 		$sql=" SELECT  ";
@@ -67,6 +89,7 @@ class Kardex_model extends CI_Model
 		return $query->result_array();
 
 	}
+
 	public function estadoBodega($data)
 	{
 		$update = array(

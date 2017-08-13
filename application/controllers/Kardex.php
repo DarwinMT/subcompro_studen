@@ -62,6 +62,13 @@ class Kardex extends CI_Controller {
 		echo json_encode($this->Kardex_model->kardexproducto($filtro));
 	}
 
+	public function data_reporte()
+	{
+		$this->load->model('Kardex_model');
+		$filtro =  json_decode(file_get_contents("php://input"));
+		echo json_encode($this->Kardex_model->reporteKardexProducto($filtro));
+	}
+
 	public function edit_estado()
 	{
 		$this->load->model('Kardex_model');

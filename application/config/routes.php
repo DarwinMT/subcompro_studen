@@ -108,3 +108,6 @@ $route['kardex_producto'] = 'Kardex/kardex_producto';
 
 //-------- notificacion producto
 $route['get_cant_productos'] = 'Producto/notificacion';
+
+//------ Datos para el reporte filtro de fecha , producto y bodega  : se ve en que estado esta el producto en dicha fecha  
+$route['list_data_reporte'] = 'Kardex/data_reporte';

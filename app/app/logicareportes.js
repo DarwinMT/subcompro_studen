@@ -77,23 +77,112 @@ app.controller("logicareporte",function($scope,$http){
 		});
 
 	};
-
+	$scope.busca_producto="";
 	$scope.get_kardex_invetario=function(){
-		/*var doc = new jsPDF('p','cm','A4');
-		doc.setFontSize(9);
 		
-		doc.setLineWidth(0.01);
+		if($("#txt_fechabusca").val()!=""){
+			if($scope.busca_producto!=""){
+				var filtro={
+						fecha:$("#txt_fechabusca").val(),
+						id_prod: $scope.busca_producto,
+						id_bod:$scope.cmb_bodega
+					};
+				$http.post("list_data_reporte",filtro)
+				.success(function(data){
+					var aux=[];
+					$scope.list_data=[];
+					var cantidad=0;
+					var x=1;
+					data.forEach(function(e){
+						cantidad+=( parseInt(e.cant_entrada_kar) - parseInt(e.cant_salida_kar) );
+						var item=[
+							{text: ''+x+'', style: 'texttable'},
+							{text: ''+e.nombre_prod+'', style: 'texttable'},
+							{text: ''+e.codigo_prod+'', style: 'texttable'},
+							{text: ''+e.fecha_kar+'', style: 'texttable'},
+							{text: ''+e.descripcion_bod+'', style: 'texttable'},
+							{text: ''+e.descripcion_cant_kar+'', style: 'texttable'},
+							{text: ''+e.cant_entrada_kar+'', style: 'texttable'},
+							{text: ''+e.cant_salida_kar+'', style: 'texttable'},
+							{text: ''+cantidad+'', style: 'texttable'},
+						];
+						$scope.list_data.push(item);
+						x++;
+					});
+					$scope.make_reporte($scope.list_data);
+				});
+			}else{
+				alert("Seleccione un producto");
+			}
+		}else{
+			alert("Seleccione una fecha");
+		}
 
-		doc.rect(1, 2, 1, 1);
+	};
+	$scope.make_reporte=function(data){
+		var f =new Date();
+		var fecha=f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear()
+		var docDefinition = {
 
-		doc.text(2.2, 2.5, 'jsPDF');
+		content: [
+			{text: 'REPORTE DE INVENTARIO', style: 'header'},
+			{text: 'Fecha: '+fecha, style: 'subheader'},
+			{
+				style: 'styletable',
+				table: {
+					body: $scope.make_body_reporte(data)
+				}
+			}
+		],
+		styles: {
+			header: {
+				fontSize: 18,
+				bold: true,
+				alignment: 'center'
+			},
+			subheader: {
+				fontSize: 16,
+				bold: true,
+				alignment: 'right'
+				//margin: [0, 10, 0, 5]
+			},
+			styletable: {
+				margin: [0, 5, 0, 15]
+			},
+			tableHeader: {
+				bold: true,
+				fontSize: 10,
+				color: 'black'
+			},
+			texttable: {
+				fontSize: 10,
+				color: 'black'
+			}
+		}
 
-		doc.rect(2, 2, 2, 1);*/
-
-		var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+		};
 		pdfMake.createPdf(docDefinition).print();
+	};
 
-
+	$scope.make_body_reporte=function(data){
+		var body=[];
+		var head=[];
+		head=[
+			{text: '', style: 'tableHeader'},
+			{text: 'PRODUCTO', style: 'tableHeader'},
+			{text: 'CODIGO', style: 'tableHeader'},
+			{text: 'FECHA', style: 'tableHeader'},
+			{text: 'BODEGA', style: 'tableHeader'},
+			{text: 'DESCRIPCION', style: 'tableHeader'},
+			{text: 'ENTRADA', style: 'tableHeader'},
+			{text: 'SALIDA', style: 'tableHeader'},
+			{text: 'BALANCE', style: 'tableHeader'}
+		];
+		body.push(head);
+		for(var x=0;x<data.length;x++){
+			body.push(data[x]);
+		}
+		return body;
 	};
 	
 
