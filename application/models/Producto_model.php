@@ -24,10 +24,20 @@ class Producto_model extends CI_Model
 		$query=$this->db->insert('producto', $data);
 		return $this->db->insert_id();
 	}
+
+	public function savemarcaproductop($data)
+	{
+		$query=$this->db->insert('marca_producto_proveedor', $data);
+		return $this->db->insert_id();
+	}
+
 	public function getlistproductos($filtro)
 	{
 		$sql=" SELECT  ";
-		$sql.=" * ";
+		$sql.=" *, ";
+		$sql.=" (SELECT  mpp.id_mar FROM marca_producto_proveedor mpp WHERE mpp.id_prod=producto.id_prod) AS id_mar, ";
+		$sql.=" (SELECT  mpp.id_pro FROM marca_producto_proveedor mpp WHERE mpp.id_prod=producto.id_prod) AS id_pro, ";
+		$sql.=" (SELECT m.descripcion_mar FROM marca m WHERE m.id_mar= (SELECT  mpp.id_mar FROM marca_producto_proveedor mpp WHERE mpp.id_prod=producto.id_prod) ) as desri_marca ";
 		$sql.=" FROM producto "; 
 		$sql.=" WHERE producto.estado_prod='".$filtro->estado."' ";
 		if($filtro->buscar!=""){
@@ -58,6 +68,12 @@ class Producto_model extends CI_Model
 	{
         $this->db->where('id_prod',$data->id_prod);
         return $this->db->update('producto', $data);
+	}
+
+	public function updatamarcapp($data)
+	{
+        $this->db->where('id_prod',$data->id_prod);
+        return $this->db->update('marca_producto_proveedor', $data);
 	}
 	
 	public function getStockNotificacionProducto($filtro)

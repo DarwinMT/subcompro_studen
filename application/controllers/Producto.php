@@ -43,7 +43,11 @@ class Producto extends CI_Controller {
 	{
 		$this->load->model('Producto_model');
 		$data =  json_decode(file_get_contents("php://input"));
-		$id=$this->Producto_model->saveProducto($data);
+		$id=$this->Producto_model->saveProducto($data->Producto);
+		$data->marcapp->id_prod=$id;
+
+		$this->Producto_model->savemarcaproductop($data->marcapp);
+
 		echo $id;
 
 	}
@@ -65,7 +69,9 @@ class Producto extends CI_Controller {
 	{
 		$this->load->model('Producto_model');
 		$data =  json_decode(file_get_contents("php://input"));
-		echo $this->Producto_model->updataProducto($data);
+		
+		$this->Producto_model->updatamarcapp($data->marcapp);
+		echo $this->Producto_model->updataProducto($data->Producto);
 	}
 
 	public function notificacion()

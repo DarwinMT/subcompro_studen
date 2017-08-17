@@ -30,6 +30,20 @@ app.controller("logicaproducto",function($scope,$http){
 		});
 	};
 
+	$scope.aux_marca="";
+	$scope.lista_marcas=[];
+	$scope.get_marcas=function(){
+		var filtro={
+			estado: "1",
+			buscar: ""
+		};
+		$http.post("list_marcas",filtro)
+		.success(function(data){
+			$scope.lista_marcas=data;
+		});
+
+	};
+
 
 	$scope.newandedit="0";
 	$scope.get_permisos=function() {
@@ -48,34 +62,46 @@ app.controller("logicaproducto",function($scope,$http){
 	};
 
 	$scope.int_producto=function(){
-		var data_producto={
-			nombre_prod:$scope.nombre_prod, 
-			categoria_prod: $scope.categoria_prod,
-			precio_prod:$scope.precio_prod, 
-			codigo_prod:$scope.codigo_prod, 
-			estado_prod:'1'
-		}
-		$http.post("save_producto",data_producto)
-		.success(function(data){
-			if(parseInt(data)>0){
-				$scope.Mensaje="Se guardo correctamente";
-				$("#sms").modal("show");
-				$scope.clear_data();
-				setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
-				$scope.get_productos();
-				$scope.newandedit="0";
-				$scope.aux_edicion="0";
-			}else{
-				$scope.Mensaje="Error al guardar";
-				$("#sms").modal("show");
-				$scope.clear_data();
-				setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
-				$scope.get_productos();
-				$scope.newandedit="0";
-				$scope.aux_edicion="0";
+		if($scope.aux_marca!=""){
+			var data_producto={
+				nombre_prod:$scope.nombre_prod, 
+				categoria_prod: $scope.categoria_prod,
+				precio_prod:$scope.precio_prod, 
+				codigo_prod:$scope.codigo_prod, 
+				estado_prod:'1'
 			}
-		});
-	
+			var marcap={
+				id_mar: $scope.aux_marca,
+				id_pro: $scope.aux_proveedor,
+				id_prod:''
+			};
+			var mara_producto={
+				Producto:data_producto ,
+				marcapp: marcap
+			};
+			$http.post("save_producto",mara_producto)
+			.success(function(data){
+				if(parseInt(data)>0){
+					$scope.Mensaje="Se guardo correctamente";
+					$("#sms").modal("show");
+					$scope.clear_data();
+					setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
+					$scope.get_productos();
+					$scope.newandedit="0";
+					$scope.aux_edicion="0";
+				}else{
+					$scope.Mensaje="Error al guardar";
+					$("#sms").modal("show");
+					$scope.clear_data();
+					setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
+					$scope.get_productos();
+					$scope.newandedit="0";
+					$scope.aux_edicion="0";
+				}
+			});
+		}else{
+			alert("Seleccione una marca");
+		}
 	};
 
 	$scope.clear_data=function(){
@@ -101,6 +127,23 @@ app.controller("logicaproducto",function($scope,$http){
 		});
 
 	};
+
+	$scope.lista_proveedor=[];
+	$scope.aux_proveedor="";
+	$scope.get_proveedore=function(){
+		var filtro={
+			estado: "1",
+			buscar: ""
+		};
+		$http.post("list_proveedor",filtro)
+		.success(function(data){
+			$scope.lista_proveedor=data;
+		});
+
+	};
+
+
+
 
 	$scope.activar_inactivar=function(item){
 		console.log(item);
@@ -140,39 +183,58 @@ app.controller("logicaproducto",function($scope,$http){
 		$scope.genero_per=item.genero_per; 
 		$scope.codigo_prod=item.codigo_prod;
 
+		$scope.aux_marca=item.id_mar;
+		$scope.aux_proveedor=item.id_pro;
 	};
 
 	$scope.save_edit=function() {
-		var data_producto={
-			id_prod:$scope.aux_edit_producto.id_prod,
-			nombre_prod:$scope.nombre_prod, 
-			categoria_prod: $scope.categoria_prod,
-			precio_prod:$scope.precio_prod, 
-			genero_per:$scope.genero_per, 
-			codigo_prod:$scope.codigo_prod,
-			estado_prod:'1'
-		}
+		if($scope.aux_marca!="" ){
+			var data_producto={
+				id_prod:$scope.aux_edit_producto.id_prod,
+				nombre_prod:$scope.nombre_prod, 
+				categoria_prod: $scope.categoria_prod,
+				precio_prod:$scope.precio_prod, 
+				genero_per:$scope.genero_per, 
+				codigo_prod:$scope.codigo_prod,
+				estado_prod:'1'
+			};
 
-		$http.post("save_edit_producto",data_producto)
-		.success(function(data){
-			if(parseInt(data)>0){
-				$scope.Mensaje="Se guardo correctamente";
-				$("#sms").modal("show");
-				$scope.clear_data();
-				setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
-				$scope.get_productos();
-				$scope.newandedit="0";
-				$scope.aux_edicion="0";
-			}else{
-				$scope.Mensaje="Error al modificar";
-				$("#sms").modal("show");
-				$scope.clear_data();
-				setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
-				$scope.get_productos();
-				$scope.newandedit="0";
-				$scope.aux_edicion="0";
-			}
-		});
+			var marcap={
+				id_mar: $scope.aux_marca,
+				id_pro: $scope.aux_proveedor,
+				id_prod:$scope.aux_edit_producto.id_prod
+			};
+
+
+			var producotpp={
+				Producto: data_producto,
+				marcapp:marcap
+			};
+			
+
+			$http.post("save_edit_producto",producotpp)
+			.success(function(data){
+				if(parseInt(data)>0){
+					$scope.Mensaje="Se guardo correctamente";
+					$("#sms").modal("show");
+					$scope.clear_data();
+					setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
+					$scope.get_productos();
+					$scope.newandedit="0";
+					$scope.aux_edicion="0";
+				}else{
+					$scope.Mensaje="Error al modificar";
+					$("#sms").modal("show");
+					$scope.clear_data();
+					setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
+					$scope.get_productos();
+					$scope.newandedit="0";
+					$scope.aux_edicion="0";
+				}
+			});
+		}else{
+			alert("Seleccione una marca");
+		}
 	};
 
 });

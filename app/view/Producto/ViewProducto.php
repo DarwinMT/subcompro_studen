@@ -8,7 +8,7 @@
 <!--notificaciones-->
 
 
- <div class="container" ng-init="get_permisos();get_productos();">
+ <div class="container" ng-init="get_permisos();get_productos(); get_marcas();get_proveedore(); ">
  	<div class="row">
  		<div class="col-xs-12">
  			<h3 ><strong>&nbsp;</strong></h3>
@@ -46,7 +46,28 @@
 	 		</div>
 	 	</div>
 
-	 
+	 	<div class="row">
+	 		<div class="col-xs-6">
+	 		<div class="input-group">
+				  <span class="input-group-addon" id="basic-addon1">Marca : </span>
+				  <select class="form-control" name="aux_marca" id="aux_marca" ng-model="aux_marca" >
+				  	<option value="">Seleccione</option>
+				  	<option ng-repeat=" m in lista_marcas" value="{{m.id_mar}}">{{m.descripcion_mar}}</option>
+				  </select>
+			</div>
+			</div>
+
+			<div class="col-xs-6">
+	 		<div class="input-group">
+				  <span class="input-group-addon" id="basic-addon1">Proveedor : </span>
+				  <select class="form-control" name="aux_proveedor" id="aux_proveedor" ng-model="aux_proveedor" >
+				  	<option value="">Seleccione</option>
+				  	<option ng-repeat=" p in lista_proveedor" value="{{p.id_pro}}">{{p.apellido_per+' '+p.nombre_per}}</option>
+				  </select>
+			</div>
+			</div>
+
+	 	</div>
 
 
 	 	<div class="row">
@@ -94,6 +115,7 @@
  							<th>Código</th>
  							<th>Nombre</th>
  							<th>Categoría</th>
+ 							<th>Marca</th>
  							<th>Precio</th>
  							<th></th>
  						</tr>
@@ -104,6 +126,7 @@
  							<td>{{p.codigo_prod}}</td>
  							<td>{{p.nombre_prod}}</td>
  							<td>{{p.categoria_prod}}</td>
+ 							<td>{{p.desri_marca}}</td>
  							<td>{{p.precio_prod}}</td>
  							<td>
  								<button type="button" class="btn btn-primary" ng-click="init_edit(p);"><i class="glyphicon glyphicon-pencil"></i></button>
