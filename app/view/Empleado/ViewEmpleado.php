@@ -10,6 +10,7 @@
  <div class="container" ng-init="get_permisos();get_empleados(); get_notificaciones();">
  	<div class="row">
  		<div class="col-xs-12">
+ 			<h3 ><strong>&nbsp;</strong></h3>
  			<h3 class="page-header"><strong>{{Titulo}}</strong></h3>
  		</div>
  	</div>
@@ -17,7 +18,7 @@
 	 	<div class="row">
 	 		<div class="col-xs-12">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">DNI</span>
+				  <span class="input-group-addon" id="basic-addon1">DNI : </span>
 				  <input type="text" class="form-control" name="dni_per"  id="dni_per" ng-model="dni_per" >
 				</div>
 	 		</div>
@@ -31,7 +32,7 @@
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Appellidos </span>
+				  <span class="input-group-addon" id="basic-addon1">Apellidos </span>
 				  <input type="text" class="form-control" name="apellido_per"  id="apellido_per" ng-model="apellido_per" >
 				</div>
 	 		</div>
@@ -39,7 +40,7 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Genero : </span>
+				  <span class="input-group-addon" id="basic-addon1">Género : </span>
 				  <select class="form-control" name="genero_per"  id="genero_per" ng-model="genero_per" >
 				  	<option value="M">Masculino</option>
 				  	<option value="F">Femenino</option>
@@ -48,7 +49,7 @@
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Direccion </span>
+				  <span class="input-group-addon" id="basic-addon1">Dirección : </span>
 				  <input type="text" class="form-control" name="direccion_per"  id="direccion_per" ng-model="direccion_per" >
 				</div>
 	 		</div>
@@ -57,13 +58,13 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Telefono </span>
+				  <span class="input-group-addon" id="basic-addon1">Teléfono : </span>
 				  <input type="text" class="form-control" name="telefono_per"  id="telefono_per" ng-model="telefono_per" >
 				</div>
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Celular </span>
+				  <span class="input-group-addon" id="basic-addon1">Celular : </span>
 				  <input type="text" class="form-control" name="celular_per"  id="celular_per" ng-model="celular_per" >
 				</div>
 	 		</div>
@@ -79,7 +80,7 @@
 
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Direccion Op. </span>
+				  <span class="input-group-addon" id="basic-addon1">Dirección Op. : </span>
 				  <input type="text" class="form-control" name="direccion_empl"  id="direccion_empl" ng-model="direccion_empl" >
 				</div>
 	 		</div>
@@ -88,7 +89,7 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Telefono Op. </span>
+				  <span class="input-group-addon" id="basic-addon1">Teléfono Op. : </span>
 				  <input type="text" class="form-control" name="telefono_empl"  id="telefono_empl" ng-model="telefono_empl" >
 				</div>
 	 		</div>
@@ -96,6 +97,7 @@
 
 	 	<div class="row">
 	 		<div class="text-center col-xs-12">
+	 			<h5 class="page-header">&nbsp;</h5>
 	 			<button type="button"  class="btn btn-sm btn-primary" ng-click=" newandedit='0'; get_empleados(); " > Registro</button>
 	 			<button type="button" ng-disabled="list_permisos.access_save==0 " ng-hide=" aux_edicion!='0' " ng-show=" aux_edicion=='0' " ng-click="int_empleado();"  class="btn btn-sm btn-success"> Guardar</button>
 	 			<button type="button" ng-disabled="list_permisos.access_edit==0 " ng-hide=" aux_edicion!='1' " ng-show=" aux_edicion=='1' " ng-click="save_edit();" class="btn btn-sm btn-info"> Guardar</button>
@@ -137,8 +139,8 @@
  							<th></th>
  							<th>Dni</th>
  							<th>Empleado</th>
- 							<th>Telefono</th>
- 							<th>Direccion</th>
+ 							<th>Teléfono</th>
+ 							<th>Dirección</th>
  							<th></th>
  						</tr>
  					</thead>

@@ -11,6 +11,7 @@
  <div class="container" ng-init="get_permisos();get_productos();">
  	<div class="row">
  		<div class="col-xs-12">
+ 			<h3 ><strong>&nbsp;</strong></h3>
  			<h3 class="page-header"><strong>{{Titulo}}</strong></h3>
  		</div>
  	</div>
@@ -25,7 +26,7 @@
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Categoria </span>
+				  <span class="input-group-addon" id="basic-addon1">Categoría : </span>
 				  <input type="text" class="form-control" name="categoria_prod"  id="categoria_prod" ng-model="categoria_prod" >
 				</div>
 	 		</div>
@@ -33,13 +34,13 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Precio </span>
+				  <span class="input-group-addon" id="basic-addon1">Precio : </span>
 				  <input type="text" class="form-control" name="precio_prod"  id="precio_prod" ng-model="precio_prod" >
 				</div>
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Codigo </span>
+				  <span class="input-group-addon" id="basic-addon1">Código : </span>
 				  <input type="text" class="form-control" name="codigo_prod"  id="codigo_prod" ng-model="codigo_prod" >
 				</div>
 	 		</div>
@@ -50,6 +51,7 @@
 
 	 	<div class="row">
 	 		<div class="text-center col-xs-12">
+	 			<h5 class="page-header">&nbsp;</h5>
 	 			<button type="button"  class="btn btn-sm btn-primary" ng-click=" newandedit='0'; get_productos(); " > Registro</button>
 	 			<button type="button" ng-disabled="list_permisos.access_save==0 " ng-hide=" aux_edicion!='0' " ng-show=" aux_edicion=='0' " ng-click="int_producto();"  class="btn btn-sm btn-success"> Guardar</button>
 	 			<button type="button" ng-disabled="list_permisos.access_edit==0 " ng-hide=" aux_edicion!='1' " ng-show=" aux_edicion=='1' " ng-click="save_edit();" class="btn btn-sm btn-info"> Guardar</button>
@@ -89,9 +91,9 @@
  					<thead>
  						<tr class="btn-primary">
  							<th></th>
- 							<th>Codigo</th>
+ 							<th>Código</th>
  							<th>Nombre</th>
- 							<th>Categoria</th>
+ 							<th>Categoría</th>
  							<th>Precio</th>
  							<th></th>
  						</tr>

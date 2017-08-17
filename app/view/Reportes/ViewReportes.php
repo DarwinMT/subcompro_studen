@@ -10,6 +10,7 @@
  <div class="container" ng-init="get_permisos();get_productos();get_kardex_invetario_all(); get_notificaciones();">
  	<div class="row">
  		<div class="col-xs-12">
+      <h3 ><strong>&nbsp;</strong></h3>
  			<h3 class="page-header"><strong>{{Titulo}}</strong></h3>
  		</div>
  	</div>

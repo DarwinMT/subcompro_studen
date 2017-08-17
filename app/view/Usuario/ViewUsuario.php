@@ -4,6 +4,11 @@
  	
  	<div class="row">
  		<div class="col-xs-12">
+ 			<h3 ><strong>&nbsp;</strong></h3>
+ 		</div>
+ 	</div>
+ 	<div class="row">
+ 		<div class="col-xs-12">
  			<h3 class="page-header"><strong>{{Titulo}}</strong></h3>
  		</div>
  	</div>
@@ -24,7 +29,7 @@
 	 	<div class="row">
 	 		<div class="col-xs-12">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">DNI</span>
+				  <span class="input-group-addon" id="basic-addon1">DNI : </span>
 				  <input type="text" class="form-control" name="dni_per"  id="dni_per" ng-model="dni_per" >
 				</div>
 	 		</div>
@@ -38,7 +43,7 @@
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Appellidos </span>
+				  <span class="input-group-addon" id="basic-addon1">Appellidos : </span>
 				  <input type="text" class="form-control" name="apellido_per"  id="apellido_per" ng-model="apellido_per" >
 				</div>
 	 		</div>
@@ -46,7 +51,7 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Genero : </span>
+				  <span class="input-group-addon" id="basic-addon1">Género : </span>
 				  <select class="form-control" name="genero_per"  id="genero_per" ng-model="genero_per" >
 				  	<option value="M">Masculino</option>
 				  	<option value="F">Femenino</option>
@@ -55,7 +60,7 @@
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Direccion </span>
+				  <span class="input-group-addon" id="basic-addon1">Dirección : </span>
 				  <input type="text" class="form-control" name="direccion_per"  id="direccion_per" ng-model="direccion_per" >
 				</div>
 	 		</div>
@@ -64,13 +69,13 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Telefono </span>
+				  <span class="input-group-addon" id="basic-addon1">Teléfono : </span>
 				  <input type="text" class="form-control" name="telefono_per"  id="telefono_per" ng-model="telefono_per" >
 				</div>
 	 		</div>
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Celular </span>
+				  <span class="input-group-addon" id="basic-addon1">Celular : </span>
 				  <input type="text" class="form-control" name="celular_per"  id="celular_per" ng-model="celular_per" >
 				</div>
 	 		</div>
@@ -79,7 +84,7 @@
 	 	<div class="row">
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Correo </span>
+				  <span class="input-group-addon" id="basic-addon1">Correo : </span>
 				  <input type="text" class="form-control" name="correo_per"  id="correo_per" ng-model="correo_per" >
 				</div>
 	 		</div>
@@ -89,7 +94,7 @@
 	 		<!--Datos para crear el usuario -->
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1"> Usuario </span>
+				  <span class="input-group-addon" id="basic-addon1"> Usuario : </span>
 				  <input type="text" class="form-control" name="usuario_usu"  id="usuario_usu" ng-model="usuario_usu" >
 				</div>
 	 		</div>
@@ -98,10 +103,11 @@
 	 	
 	 		<div class="col-xs-6">
 	 			<div class="input-group">
-				  <span class="input-group-addon" id="basic-addon1">Clave </span>
+				  <span class="input-group-addon" id="basic-addon1">Clave : </span>
 				  <input type="password" class="form-control" name="password_usu"  id="password_usu" ng-model="password_usu" >
 				</div>
 	 		</div>
+	 		<h5 class="page-header">&nbsp;</h5>
 	 	</div>
 
 	 	<div class="row">
@@ -148,8 +154,8 @@
  							<th>Dni</th>
  							<th>Usuario Nombre</th>
  							<th>Usuario </th>
- 							<th>Telefono</th>
- 							<th>Direccion</th>
+ 							<th>Teléfono</th>
+ 							<th>Dirección</th>
  							<th></th>
  						</tr>
  					</thead>
@@ -212,7 +218,7 @@
  					<tr>
  						<th colspan="6" class="text-center">
  							<button type="button" ng-click="save_permisos_usuario()" class="btn btn-success"> Guardar </button>
- 							<button type="button"  class="btn btn-sm btn-primary" ng-click=" newandedit='0'; get_usuarios(); " > Registro</button>
+ 							<button type="button"  class="btn btn-primary" ng-click=" newandedit='0'; get_usuarios(); " > Registro</button>
  						</th>
  					</tr>
  				</tfoot>
@@ -224,7 +230,7 @@
  	<!--cambiar clave user -->
  	<div class="row" ng-hide=" newandedit!='4'  " ng-show=" newandedit=='4' ">
  		<div class="row text-center">
- 			<strong>Cambio de clave</strong>
+ 			<h3><strong>Cambio de Clave</strong></h3>
  			<br>
  		</div>
  		<div class="row">
@@ -252,8 +258,9 @@
  			</div>
  		</div>
  		<div class="row text-center">
+ 			<h5 class="page-header">&nbsp;</h5>
  			<button type="button" ng-click="save_user_pass()" class="btn btn-success"> Guardar </button>
- 			<button type="button"  class="btn btn-sm btn-primary" ng-click=" newandedit='0'; get_usuarios(); " > Registro</button>
+ 			<button type="button"  class="btn btn-primary" ng-click=" newandedit='0'; get_usuarios(); " > Registro</button>
  		</div>
  	</div>
  	<!--cambiar clave user -->
