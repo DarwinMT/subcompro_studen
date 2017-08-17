@@ -165,7 +165,7 @@
  								<button type="button" class="btn btn-primary" ng-click="init_edit(p);"><i class="glyphicon glyphicon-pencil"></i></button>
  								<button type="button" class="btn btn-success" ng-click=" permisos_usuario(p); " ><i class="glyphicon glyphicon-cog"></i></button>
  								<button type="button" class="btn btn-danger" ng-disabled="list_permisos.access_delete==0 " ng-click=" activar_inactivar(p); " ><i class="glyphicon glyphicon-trash"></i></button>
-
+ 								<button type="button" class="btn btn-info" ng-click="init_user(p);"><i class="glyphicon glyphicon-pencil"></i> <i class="glyphicon glyphicon-user"></i></button>
  							</td>
  						</tr>
  					</tbody>
@@ -220,6 +220,43 @@
  		</div>
  	</div>
  	<!--frm para asignar permisos -->
+
+ 	<!--cambiar clave user -->
+ 	<div class="row" ng-hide=" newandedit!='4'  " ng-show=" newandedit=='4' ">
+ 		<div class="row text-center">
+ 			<strong>Cambio de clave</strong>
+ 			<br>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-xs-4">
+ 			</div>
+ 			<div class="col-xs-4">
+ 				<div class="input-group">
+				  <span class="input-group-addon" id="basic-addon1">Usuario</span>
+				  <input type="text" class="form-control" name="user_edit"  id="user_edit" ng-model="user_edit" >
+				</div>
+ 			</div>
+ 			<div class="col-xs-4">
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-xs-4">
+ 			</div>
+ 			<div class="col-xs-4">
+ 				<div class="input-group">
+				  <span class="input-group-addon" id="basic-addon1">Clave</span>
+				  <input type="password" class="form-control" name="clave_edit"  id="clave_edit" ng-model="clave_edit" >
+				</div>
+ 			</div>
+ 			<div class="col-xs-4">
+ 			</div>
+ 		</div>
+ 		<div class="row text-center">
+ 			<button type="button" ng-click="save_user_pass()" class="btn btn-success"> Guardar </button>
+ 			<button type="button"  class="btn btn-sm btn-primary" ng-click=" newandedit='0'; get_usuarios(); " > Registro</button>
+ 		</div>
+ 	</div>
+ 	<!--cambiar clave user -->
 
 
 </div>

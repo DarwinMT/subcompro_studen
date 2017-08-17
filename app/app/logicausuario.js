@@ -295,6 +295,54 @@ app.controller("logicausuarios",function($scope,$http){
 
 	};
 
+	$scope.aux_user={};
+	$scope.user_edit="";
+	$scope.clave_edit="";
+	$scope.init_user=function(item){
+		console.log(item);
+		
+		$scope.newandedit="4";
+		$scope.usuariosincondatos="0";
+
+		$scope.aux_user=item;
+
+		$scope.user_edit=$scope.aux_user.usuario_usu;
+		$scope.clave_edit="";
+
+	};
+	$scope.save_user_pass=function(){
+		if($scope.clave_edit!="" && $scope.user_edit!=""){
+			var data={
+				id_usu:$scope.aux_user.id_usu,
+				usuario_usu: $scope.user_edit,
+				password_usu: $scope.clave_edit
+			};
+			$http.post("save_edit_user",data)
+			.success(function(data){
+				if(parseInt(data)>0){
+					$scope.Mensaje="Se guardo correctamente";
+					$("#sms").modal("show");
+					$scope.clear_data();
+					setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
+					$scope.get_usuarios();
+					$scope.newandedit="0";
+					$scope.aux_edicion="0";
+				}else{
+					$scope.Mensaje="Error al modificar";
+					$("#sms").modal("show");
+					$scope.clear_data();
+					setTimeout(function(){ $("#sms").modal("hide"); }, 1500);
+					$scope.get_usuarios();
+					$scope.newandedit="0";
+					$scope.aux_edicion="0";
+				}
+			});
+		}else{
+			alert("Ingrese un usuario y clave");
+		}
+	};
+
+
 	$scope.aux_edit_usuario={};
 	$scope.aux_edicion="0";
 	$scope.init_edit=function(item){

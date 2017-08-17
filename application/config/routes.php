@@ -77,6 +77,8 @@ $route['list_usuario'] = 'Usuario/get_usuario';
 	$route['edit_permisos_usuario'] = 'Usuario/edit_permisos';
 	////---- logica de asignacion de permisos usuario 
 $route['save_edit_usuario'] = 'Usuario/edit_usuario'; 
+$route['save_edit_user'] = 'Usuario/edit_user'; 
+
 
 //-----LOGICA USUARIO ------
 
@@ -84,6 +86,7 @@ $route['save_edit_usuario'] = 'Usuario/edit_usuario';
 $route['save_empleado'] = 'Empleado/save_empleado';
 $route['list_empleado'] = 'Empleado/get_empleados'; 
 $route['save_edit_empleado'] = 'Empleado/edit_empleado';  
+
 
 //----LOGICA MARCA ----
 $route['save_marca'] = 'Marca/save_marca';

@@ -77,6 +77,14 @@ class Usuario extends CI_Controller {
 		//echo $this->Usuario_model->updateUsuario($data->Usuario);
 	}
 
+	public function edit_user()
+	{
+		$this->load->model('Usuario_model');
+		$data =  json_decode(file_get_contents("php://input"));
+		$data->password_usu=md5($data->password_usu);
+		echo $this->Usuario_model->updateUsuario($data);
+	}
+
 	public function list_menu()
 	{
 		$this->load->model('Usuario_model');
