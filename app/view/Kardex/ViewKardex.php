@@ -113,7 +113,7 @@
  			</div>
  		</div>
  		<div class="row">
- 			<div class="col-xs-12">
+ 			<div class="col-xs-12" style="height:450px; overflow-x: scroll;">
  				<table class="table table-bordered table-condensend">
  					<thead>
  						<tr class="btn-primary">
