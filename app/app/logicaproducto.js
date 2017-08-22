@@ -162,6 +162,7 @@ app.controller("logicaproducto",function($scope,$http){
 		$http.post("activar_inactivar_producto",aux_producto)
 		.success(function(data){
 			console.log(data);
+			if(isNaN(data)) alert("No se puede eliminar el producto porque cuenta con movimientos en el kardex");
 			$scope.get_productos();
 		});
 

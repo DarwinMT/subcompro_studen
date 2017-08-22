@@ -51,11 +51,26 @@ class Producto_model extends CI_Model
 	}
 	public function estadoProducto($data)
 	{
-		$update = array(
-            'estado_prod' => $data->estado_prod,
-            );
-        $this->db->where('id_prod',$data->id_prod);
-        return $this->db->update('producto', $update);
+		$sql=" SELECT  ";
+		$sql.=" (SUM(kardex.cant_entrada_kar)-SUM(cant_salida_kar)) AS Cantidad ";
+		$sql.=" FROM ";
+		$sql.=" producto_bodega  ";
+		$sql.=" INNER JOIN kardex ON producto_bodega.id_pd=kardex.id_pd ";
+		$sql.=" WHERE producto_bodega.id_prod=".$data->id_prod." ";
+		$sql.=" ORDER BY kardex.fecha_kar ";
+		$query=$this->db->query($sql);
+		$aux= $query->result_array();
+		if( (int) $aux[0]["Cantidad"]>0){
+			$update = array(
+	            'estado_prod' => $data->estado_prod,
+	            );
+	        $this->db->where('id_prod',$data->id_prod);
+	        return $this->db->update('producto', $update);
+		}else{
+			return "El producto tien kardex";
+		}
+
+		
 	}
 
 	public function updataPersona($data)
